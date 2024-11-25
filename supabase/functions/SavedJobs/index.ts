@@ -5,15 +5,16 @@ import { HttpMethod } from "../_shared/_constants/HttpMethods.ts";
 import handleGetSavedJobRequest from "../_handler/HandleSavedJob.ts";
 
 
-
-
 Deno.serve(async (req) => {
   const method=req.method;
 
   if (method==HttpMethod.GET) {
+    console.log("Step 1: Received GET request in index.ts");
    return await handleGetSavedJobRequest(req);
     
   }
+  console.log(`Step 1: Received non-GET request: ${method} in index.ts`);
+
 
   return new Response(
     JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES["Method Not Allowed"],ERROR_MESSAGES.MethodNotAllowed,new Date)),
