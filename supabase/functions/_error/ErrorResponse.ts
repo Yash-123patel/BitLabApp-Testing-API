@@ -15,3 +15,4 @@ export class ErrorResponseImpl implements ErrorResponse{
         this.errorTime=errorTime;
     }
 }
+
