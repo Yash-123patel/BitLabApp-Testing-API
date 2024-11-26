@@ -7,6 +7,7 @@ export const HTTP_STATUS_CODES = {
     "Method Not Allowed": 405,
     "Internal Server Error": 500,
     "No_ApplyJob":600,
-    "No_SavedJob":700
+    "No_SavedJob":700,
+    "Validation Failed":800,
 }
   

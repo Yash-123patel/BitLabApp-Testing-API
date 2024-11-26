@@ -43,6 +43,24 @@ export function handleNoSavedJobError(): Response {
     );
 }
 
+export  function handleValidationError(erroMessgae:string): Response {
+    const currentTime = new Date();
+
+    return new Response(
+        JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES["Validation Failed"],erroMessgae,currentTime)),
+        { headers: { "Content-Type": "application/json" } }
+    );
+}
+export  function handleNullErrorInJobPosting(erroMessgae:string): Response {
+    const currentTime = new Date();
+
+    return new Response(
+        JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES["Validation Failed"],erroMessgae,currentTime)),
+        { headers: { "Content-Type": "application/json" } }
+    );
+}
+
+
 export  function handleInternalServerError(): Response {
     const currentTime = new Date();
 
