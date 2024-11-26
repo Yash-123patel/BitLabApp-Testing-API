@@ -21,7 +21,7 @@ export default async function handleGetSavedJobRequest(req:Request) {
         console.log(`Step 3: Calling service layer with applicantregistration_id: ${applicantregistration_id}`);
         const savedJobs=await getAllSavedJobsFromService(parseInt(applicantregistration_id));
 
-        if(!savedJobs){
+        if(savedJobs.length==0){
             console.log("Step 8: No jobs found, sending 'No SavedJob' response to client.");
             return handleNoSavedJobError();
         }
