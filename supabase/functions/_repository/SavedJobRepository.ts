@@ -13,7 +13,7 @@ export default async function getAllSavedJobsFromRepo(applicantregistration_id:n
     if(error)   
       {
         console.log(`Step 7: Error encountered in repository layer: ${error.message}`);
-        return { error: error.message };  
+        throw new Error(error.message);  
       }    
     
           

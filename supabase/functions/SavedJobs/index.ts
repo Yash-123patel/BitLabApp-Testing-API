@@ -16,8 +16,9 @@ Deno.serve(async (req) => {
   console.log(`Step 1: Received non-GET request: ${method} in index.ts`);
 
 
+  console.log(`[WARNING]  Step 1: Received non-POST request: ${method} in index.ts`);
   return new Response(
-    JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES["Method Not Allowed"],ERROR_MESSAGES.MethodNotAllowed,new Date)),
-    { headers: { "Content-Type": "application/json" }, status: 400 }
+    JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES.MethodNotAllowed, ERROR_MESSAGES.MethodNotAllowed, new Date())),
+    { headers: { "Content-Type": "application/json" }, status: 405 }
   );
 });

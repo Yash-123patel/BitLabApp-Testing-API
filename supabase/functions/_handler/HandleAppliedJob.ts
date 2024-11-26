@@ -1,7 +1,8 @@
 import getAllAppliedJobsFromService from "../_service/AppliedJobService.ts";
 import { HTTP_STATUS_CODES } from "../_shared/_constants/StatusCodes.ts";
 import { handleBadRequestError } from "../_error/ErrorHandler.ts";
-import { handleNoApplyJobError } from "../_error/ErrorHandler.ts";
+import { handleNoAppliedJobsFound } from "../_error/ErrorHandler.ts";
+
 import { handleInternalServerError } from "../_error/ErrorHandler.ts";
 
 
@@ -20,14 +21,11 @@ export async function handleGetAppliedJobRequest(req:Request) {
             return handleBadRequestError();
         }
         console.log(`Step 3: Calling service layer with applicant_id: ${applicantId}`);
-
         const appliedJobs=await getAllAppliedJobsFromService(parseInt((applicantId)))
-
-        
 
         if (appliedJobs.length === 0) {
            console.log("Step 8: No jobs found, sending 'No ApplyJob' response to client.");
-           return handleNoApplyJobError();
+           return handleNoAppliedJobsFound();
         }
 
 
@@ -46,8 +44,5 @@ export async function handleGetAppliedJobRequest(req:Request) {
         console.log(`Step 9: Error encountered in handler, sending error response to client: ${error}`);
         return handleInternalServerError();
     }
-
    
- 
-    
 }

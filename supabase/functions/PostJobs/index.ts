@@ -15,7 +15,7 @@ Deno.serve(async (req) => {
     } catch (error) {
       console.error(`[ERROR]  Error processing POST request: ${error}`);
       return new Response(
-        JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES["Internal Server Error"], "Internal Server Error", new Date())),
+        JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES.InternalServerError, "Internal Server Error", new Date())),
         { headers: { "Content-Type": "application/json" }, status: 500 }
       );
     }
@@ -23,7 +23,7 @@ Deno.serve(async (req) => {
 
   console.log(`[WARNING]  Step 1: Received non-POST request: ${method} in index.ts`);
   return new Response(
-    JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES["Method Not Allowed"], ERROR_MESSAGES.MethodNotAllowed, new Date())),
+    JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES.MethodNotAllowed, ERROR_MESSAGES.MethodNotAllowed, new Date())),
     { headers: { "Content-Type": "application/json" }, status: 405 }
   );
 });

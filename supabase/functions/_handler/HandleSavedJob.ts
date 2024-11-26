@@ -1,7 +1,7 @@
 import { HTTP_STATUS_CODES } from "../_shared/_constants/StatusCodes.ts";
 import getAllSavedJobsFromService from "../_service/SavedJobService.ts";
 import { handleBadRequestError } from "../_error/ErrorHandler.ts";
-import {handleNoSavedJobError} from "../_error/ErrorHandler.ts";
+import {handleNoSavedJobsFound} from "../_error/ErrorHandler.ts";
 import { handleInternalServerError } from "../_error/ErrorHandler.ts";
 
 
@@ -23,7 +23,7 @@ export default async function handleGetSavedJobRequest(req:Request) {
 
         if(savedJobs.length==0){
             console.log("Step 8: No jobs found, sending 'No SavedJob' response to client.");
-            return handleNoSavedJobError();
+            return handleNoSavedJobsFound();
         }
         console.log(`Step 8: Received applied jobs data from service layer as: ${JSON.stringify(savedJobs)}`);
         console.log("Step 9: Sending all applied jobs data to client.");
