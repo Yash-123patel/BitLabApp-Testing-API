@@ -34,7 +34,7 @@ export default async function handlePostJobRequest(req: Request) {
         console.log(`[INFO] Step 7: Job inserted successfully`);
 
         return new Response(
-            JSON.stringify("Job Posted Successfully..."),
+            JSON.stringify({message: "Job Posted Successfully..."}),
             { 
                 status: HTTP_STATUS_CODES.OK,
                 headers: { "Content-Type": "application/json" }

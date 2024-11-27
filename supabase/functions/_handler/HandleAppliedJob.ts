@@ -18,7 +18,7 @@ export async function handleGetAppliedJobRequest(req:Request) {
     
         if (applicantId == null || isNaN(parseInt(applicantId))) {
             console.log("Step 3: Invalid applicant_id, sending error response to client.");
-            return handleBadRequestError();
+            return handleBadRequestError("Invalid applicant_id");
         }
         console.log(`Step 3: Calling service layer with applicant_id: ${applicantId}`);
         const appliedJobs=await getAllAppliedJobsFromService(parseInt((applicantId)))

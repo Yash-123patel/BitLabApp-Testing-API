@@ -15,7 +15,7 @@ export default async function handleGetSavedJobRequest(req:Request) {
 
         if(applicantregistration_id==null||isNaN(parseInt(applicantregistration_id))){
             console.log("Step 3: Invalid applicantregistration_id, sending error response to client.");
-            return handleBadRequestError();
+            return handleBadRequestError("Invalid applicantregistration_id,");
         }
 
         console.log(`Step 3: Calling service layer with applicantregistration_id: ${applicantregistration_id}`);

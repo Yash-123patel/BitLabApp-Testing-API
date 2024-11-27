@@ -2,11 +2,11 @@ import { ErrorResponseImpl } from "./ErrorResponse.ts";
 import { ERROR_MESSAGES } from "../_shared/_constants/ErrorMessages.ts";
 import { HTTP_STATUS_CODES } from "../_shared/_constants/StatusCodes.ts";
 
-export function handleBadRequestError() {
+export function handleBadRequestError(message:string) {
     return new Response(
         JSON.stringify(new ErrorResponseImpl(
             HTTP_STATUS_CODES.BadRequest,
-            "Invalid applicant_id",
+            message,
             new Date(),
         )),
         {
