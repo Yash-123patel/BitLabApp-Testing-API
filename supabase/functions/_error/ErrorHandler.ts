@@ -71,11 +71,11 @@ export function handleInternalServerError(): Response {
 
 export function handleNoAppliedJobsFound() {
     return new Response(
-        JSON.stringify({
-            message: "No applied jobs found for the given applicant."
-        }),
+        JSON.stringify(
+            new ErrorResponseImpl(HTTP_STATUS_CODES.NotFound,"No applied jobs found for the given applicant.",new Date())
+        ),
         {
-            status: HTTP_STATUS_CODES.OK, 
+            status: HTTP_STATUS_CODES.NotFound, 
             headers: { "content-type": "application/json" },
         }
     );
@@ -83,11 +83,9 @@ export function handleNoAppliedJobsFound() {
 
 export function handleNoSavedJobsFound(): Response {
     return new Response(
-        JSON.stringify({
-            message: "No saved jobs found for the given applicant."
-        }),
+        JSON.stringify(new ErrorResponseImpl(HTTP_STATUS_CODES.NotFound,"No Saved jobs found for the given applicant.",new Date())),
         {
-            status: HTTP_STATUS_CODES.OK, 
+            status: HTTP_STATUS_CODES.NotFound, 
             headers: { "content-type": "application/json" },
         }
     );
