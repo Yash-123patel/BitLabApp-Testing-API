@@ -8,8 +8,9 @@ import { handleInternalServerError } from "../_error/ErrorHandler.ts";
 export default async function handleGetSavedJobRequest(req:Request) {
     
     try {
-        const url=new URL(req.url);
-        const applicantregistration_id=url.searchParams.get("applicantregistration_id");
+        const url = new URL(req.url);
+        const path = url.pathname.split('/');
+        const applicantregistration_id=path[path.length-1];
         console.log(`Step 2: Handler received request with applicantregistration_id: ${applicantregistration_id}`);
     
 

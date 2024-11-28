@@ -12,7 +12,8 @@ export async function handleGetAppliedJobRequest(req:Request) {
    
     try {
         const url = new URL(req.url);
-        const applicantId = url.searchParams.get("applicant_id");
+        const path = url.pathname.split('/');
+        const applicantId=path[path.length-1];
         
         console.log(`Step 2: Handler received request with applicant_id: ${applicantId}`);
     
