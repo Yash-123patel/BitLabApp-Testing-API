@@ -15,6 +15,19 @@ export function handleBadRequestError(message:string) {
         }
     );
 }
+export function handleNotFound(message:string) {
+    return new Response(
+        JSON.stringify(new ErrorResponseImpl(
+            HTTP_STATUS_CODES.NotFound,
+            message,
+            new Date(),
+        )),
+        {
+            status: HTTP_STATUS_CODES.BadRequest,
+            headers: { "content-type": "application/json" },
+        }
+    );
+}
 
 export function handleValidationError(errorMessage: string): Response {
     const currentTime = new Date();

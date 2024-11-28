@@ -31,10 +31,16 @@ export default async function handlePostJobRequest(req: Request) {
 
         console.log(`[INFO]  Step 6: Calling Service layer to post a job`);
         const data = await postJobFromService(job);
+        if(data.length==0){
+           
+             console.error(`[ERROR]  Step 9: Error encountered in handler:`);
+             return handleInternalServerError();
+
+        }
         console.log(`[INFO] Step 7: Job inserted successfully`);
 
         return new Response(
-            JSON.stringify({message: "Job Posted Successfully..."}),
+            JSON.stringify({status: HTTP_STATUS_CODES.OK,message: "Job Posted Successfully...",time:new Date()}),
             { 
                 status: HTTP_STATUS_CODES.OK,
                 headers: { "Content-Type": "application/json" }

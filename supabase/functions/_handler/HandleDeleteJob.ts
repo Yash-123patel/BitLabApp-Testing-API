@@ -3,10 +3,17 @@ import { handleBadRequestError } from "../_error/ErrorHandler.ts";
 import { handleInternalServerError } from "../_error/ErrorHandler.ts";
 import deleteJobByIdFromService from "../_service/DeleteJobByIdService.ts";
 import { getJobIdCount } from "../_repository/DeleteJobByIdRepository.ts";
+import { handleNotFound } from "../_error/ErrorHandler.ts";
 
 export default async function handleDeleteJobByIdRequest(req:Request) {  
     try {
-        const formData=await req.formData();
+        let formData;
+        try {
+             formData=await req.formData();
+        } catch (error) {
+            
+            return handleBadRequestError("Please Provide Job Id");
+        }
         const jobId=formData.get('jobId');
         console.log(`Step 2: Handler received request with Jobid: ${jobId}`);
        
@@ -23,15 +30,15 @@ export default async function handleDeleteJobByIdRequest(req:Request) {
             console.log(`Step 8: Received Delete Job message from service layer as: ${JSON.stringify(deleteJob)}`);
             console.log("Step 9: Sending  DeleteJob Message  to client.");
             return new Response(
-                JSON.stringify("JOb Deleted Successfully"),
-                { 
-                    status:HTTP_STATUS_CODES.OK,
-                    headers: { "content-type": "application/json" } 
-                }
+                JSON.stringify({status: HTTP_STATUS_CODES.OK,message: "Job Deleted Successfully...",time:new Date()}),
+               { 
+                status: HTTP_STATUS_CODES.OK,
+                headers: { "Content-Type": "application/json" }
+               }
             );
         }
 
-        return new Response(JSON.stringify("Job Id Not Present In Table"),{status:HTTP_STATUS_CODES.NotFound});
+        return handleNotFound("Job Id not found");
 
        
     } catch (error) {
