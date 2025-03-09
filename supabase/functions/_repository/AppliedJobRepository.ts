@@ -7,7 +7,7 @@ export default async function getAllAppliedJobsFromRepo(applicant_id: number) {
 
   try {
     const { data: appliedJobs, error } = await supabase
-      .from('applied_job') 
+      .from('applyjob') 
       .select('*')
       .eq('applicant_id', applicant_id);  
 

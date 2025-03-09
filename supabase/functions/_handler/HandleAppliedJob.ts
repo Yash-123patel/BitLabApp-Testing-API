@@ -2,10 +2,7 @@ import getAllAppliedJobsFromService from "../_service/AppliedJobService.ts";
 import { HTTP_STATUS_CODES } from "../_shared/_constants/StatusCodes.ts";
 import { handleBadRequestError } from "../_error/ErrorHandler.ts";
 import { handleNoAppliedJobsFound } from "../_error/ErrorHandler.ts";
-
 import { handleInternalServerError } from "../_error/ErrorHandler.ts";
-
-
 
 export async function handleGetAppliedJobRequest(req:Request) {
     

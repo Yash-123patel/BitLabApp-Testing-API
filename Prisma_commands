@@ -1,0 +1,35 @@
+
+//to install prisma releted dependencise.
+
+          -> install prisma from vscode extension 
+               OR
+          -> npm i prisma --save-dev
+
+
+//to create initial prisma schema
+
+        -> npx prisma init
+
+//to push our changes to supabase
+
+        ->npx prisma db push
+
+
+//to create new migration file
+            
+        -> npx prisma migrate dev --name <file-name>
+
+
+//to see the status
+
+       -> npx supabase status
+
+
+//to deploy our migrations
+
+      ->npx prisma migrate deploy
+
+ 
+
+
+ supabase stop --bckup

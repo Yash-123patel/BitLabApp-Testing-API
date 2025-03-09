@@ -6,7 +6,7 @@ export default async function getAllSavedJobsFromRepo(applicantregistration_id:n
   console.log("Step 6: Connecting to Supabase database to retrieve applied jobs.");
    try {
     const{data:savedJobs,error}=await supabase
-    .from('saved_job')
+    .from('applicant_savedjob')
     .select('*')
     .eq('applicantregistration_id',applicantregistration_id);
 

@@ -3,7 +3,7 @@ import { AppliedJobImpl } from "../_model/AppliedJobModel.ts";
 
 export  async function getAppliedJobData(appliedJobId:number) {
     const{data,error}=await supabase
-         .from('applied_job')
+         .from('applyjob')
          .select('*')
          .eq('applyjobid',appliedJobId);
 

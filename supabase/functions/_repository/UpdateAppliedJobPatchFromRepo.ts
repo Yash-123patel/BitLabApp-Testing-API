@@ -4,7 +4,7 @@ import { AppliedJobImpl } from "../_model/AppliedJobModel.ts";
 export default async function updateJobUsingPatch(applyJobId: number,toUpdate: Partial<AppliedJobImpl>) {
     try {
        const { data, error } = await supabase
-     .from('applied_job')  
+     .from('applyjob')  
      .update(toUpdate)
      .eq('applyjobid',applyJobId)
      .select('*');

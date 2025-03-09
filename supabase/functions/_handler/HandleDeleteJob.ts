@@ -11,7 +11,7 @@ export default async function handleDeleteJobByIdRequest(req:Request) {
         try {
              formData=await req.formData();
         } catch (error) {
-            
+            error
             return handleBadRequestError("Please Provide Job Id");
         }
         const jobId=formData.get('jobId');

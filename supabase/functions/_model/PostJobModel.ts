@@ -6,7 +6,6 @@ export interface Job {
     description: string;
     employee_type: string;
     industry_type: string;
-    job_highlights: string;
     job_status: string;
     job_title: string;
     location: string;
@@ -18,12 +17,11 @@ export interface Job {
     new_status: string;
     promote: string;
     recent_application_date_time: string;
-    save_job_status: string;
     specialization: string;
     status: string;
-    upload_document: string;
     job_recruiter_recruiter_id: number;
     is_saved: string;
+    visitor_count: number;
     joburl: string;
   }
   
@@ -35,7 +33,6 @@ export interface Job {
     description: string;
     employee_type: string;
     industry_type: string;
-    job_highlights: string;
     job_status: string;
     job_title: string;
     location: string;
@@ -47,12 +44,11 @@ export interface Job {
     new_status: string;
     promote: string;
     recent_application_date_time: string;
-    save_job_status: string;
     specialization: string;
     status: string;
-    upload_document: string;
     job_recruiter_recruiter_id: number;
     is_saved: string;
+    visitor_count: number;
     joburl: string;
   
     constructor(data: Job) {
@@ -62,7 +58,6 @@ export interface Job {
       this.description = data.description;
       this.employee_type = data.employee_type;
       this.industry_type = data.industry_type;
-      this.job_highlights = data.job_highlights;
       this.job_status = data.job_status;
       this.job_title = data.job_title;
       this.location = data.location;
@@ -74,12 +69,11 @@ export interface Job {
       this.new_status = data.new_status;
       this.promote = data.promote;
       this.recent_application_date_time = data.recent_application_date_time;
-      this.save_job_status = data.save_job_status;
       this.specialization = data.specialization;
       this.status = data.status;
-      this.upload_document = data.upload_document;
       this.job_recruiter_recruiter_id = data.job_recruiter_recruiter_id;
       this.is_saved = data.is_saved;
+      this.visitor_count = data.visitor_count;
       this.joburl = data.joburl;
     }
   }

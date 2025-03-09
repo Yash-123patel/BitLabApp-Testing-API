@@ -9,7 +9,6 @@ export default function valiNullIndateJobData(job:JobImpl) {
     if (!job.description) missingFields.push("description");
     if (!job.employee_type) missingFields.push("employee_type");
     if (!job.industry_type) missingFields.push("industry_type");
-    if (!job.job_highlights) missingFields.push("job_highlights");
     if (!job.job_status) missingFields.push("job_status");
     if (!job.job_title) missingFields.push("job_title");
     if (!job.location) missingFields.push("location");
@@ -21,10 +20,8 @@ export default function valiNullIndateJobData(job:JobImpl) {
     if (!job.new_status) missingFields.push("new_status");
     if (!job.promote) missingFields.push("promote");
     if (!job.recent_application_date_time) missingFields.push("recent_application_date_time");
-    if (!job.save_job_status) missingFields.push("save_job_status");
     if (!job.specialization) missingFields.push("specialization");
     if (!job.status) missingFields.push("status");
-    if (!job.upload_document) missingFields.push("upload_document");
     if (job.job_recruiter_recruiter_id == null) missingFields.push("job_recruiter_recruiter_id");
     if (!job.is_saved) missingFields.push("is_saved");
     if (!job.joburl) missingFields.push("joburl");

@@ -6,7 +6,7 @@ export async function getJobIdCount(Jobid:number)
     console.log(`Step 5: Received Jobid in repository: ${Jobid}`);
     console.log("Step 6: Connecting to Supabase database to retrieve applied jobs.");
     const {data,error}=await supabase
-        .from('jobs')
+        .from('job')
         .select('*')
         .eq('id',Jobid);
 
